@@ -1,0 +1,14 @@
+[
+  {
+    "key": "BLUE_MARKETING_URL",
+    "value": "https://apidev.alfuttaim.com/alfuttaim-group/marketing/v1/catalogs",
+    "isSecret": false,
+    "description": null
+  },
+  {
+    "key": "WELCOME_KEY",
+    "value": "{\"id\":1}",
+    "isSecret": false,
+    "description": null
+  }
+]

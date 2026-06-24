@@ -1,0 +1,13 @@
+{
+  "name": "test",
+  "type": "cx_automation",
+  "description": "desc",
+  "entryAgent": null,
+  "metadata": null,
+  "slaMinutes": null,
+  "escalationRules": [],
+  "notificationRules": [],
+  "slug": "test",
+  "tags": [],
+  "_exportedId": "019edf8b-e113-73f4-896e-6a16f4fa561c"
+}

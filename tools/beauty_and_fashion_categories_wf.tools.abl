@@ -1,0 +1,6 @@
+TOOLS:
+  beauty_and_fashion_categories_wf(language: string, product_category: string) -> object
+    description: "for the beauty and fashion categories"
+    type: workflow
+    workflow_id: 019eda8b-36ca-7c3d-83ee-528aa9ac7d67
+    timeout_ms: 15000

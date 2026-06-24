@@ -1,0 +1,89 @@
+{
+  "version": "draft",
+  "state": "active",
+  "environment": null,
+  "source_hash": "25ac84c33a6c2fc6bc4aa61c6d964e69ac7ccf44a0187149d9791fe737583822",
+  "changelog": null,
+  "triggers": [
+    {
+      "_exportedId": "ba241371-fa28-4299-b88d-f2bdb23c5b9d",
+      "triggerName": "webhook",
+      "type": "webhook",
+      "config": {},
+      "environment": null
+    }
+  ],
+  "published_at": null,
+  "definition": {
+    "nodes": [
+      {
+        "id": "start-node",
+        "nodeType": "start",
+        "name": "Start",
+        "position": {
+          "x": 171.66666666666669,
+          "y": 0.8333333333333286
+        },
+        "config": {
+          "inputVariables": []
+        }
+      },
+      {
+        "id": "824f4c71-27d5-4e07-bdda-085c1f89307d",
+        "nodeType": "function",
+        "name": "Function0001",
+        "position": {
+          "x": 423.75,
+          "y": 58.08333333333333
+        },
+        "config": {
+          "code": "context.output = {\"template_id\":\"update_profile\",\"instance_id\":\"update_profile\"}"
+        }
+      },
+      {
+        "id": "2c047279-d504-43ca-8c51-5b0a958fb24f",
+        "nodeType": "end",
+        "name": "End0001",
+        "position": {
+          "x": 695.4166666666667,
+          "y": -81.91666666666669
+        },
+        "config": {
+          "outputMapping": {
+            "output": {
+              "expression": "{{context.output}}",
+              "type": "json"
+            }
+          }
+        }
+      }
+    ],
+    "edges": [
+      {
+        "id": "xy-edge__start-nodeon_success-824f4c71-27d5-4e07-bdda-085c1f89307d",
+        "source": "start-node",
+        "sourceHandle": "on_success",
+        "target": "824f4c71-27d5-4e07-bdda-085c1f89307d"
+      },
+      {
+        "id": "xy-edge__824f4c71-27d5-4e07-bdda-085c1f89307don_success-2c047279-d504-43ca-8c51-5b0a958fb24f",
+        "source": "824f4c71-27d5-4e07-bdda-085c1f89307d",
+        "sourceHandle": "on_success",
+        "target": "2c047279-d504-43ca-8c51-5b0a958fb24f"
+      }
+    ],
+    "steps": [],
+    "envVars": {},
+    "inputSchema": null,
+    "outputSchema": {
+      "type": "object",
+      "properties": {
+        "output": {}
+      }
+    },
+    "entryAgent": null,
+    "slaMinutes": null,
+    "escalationRules": [],
+    "notificationRules": []
+  }
+}

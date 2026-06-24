@@ -1,0 +1,13 @@
+{
+  "name": "render_response",
+  "type": "cx_automation",
+  "description": "desc",
+  "entryAgent": null,
+  "metadata": null,
+  "slaMinutes": null,
+  "escalationRules": [],
+  "notificationRules": [],
+  "tags": [],
+  "slug": "render-response",
+  "_exportedId": "019e8d39-7d91-77ca-9f7c-525086f10da9"
+}

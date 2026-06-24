@@ -1,0 +1,13 @@
+{
+  "name": "set_update_profile",
+  "type": "cx_automation",
+  "description": "desc",
+  "entryAgent": null,
+  "metadata": null,
+  "slaMinutes": null,
+  "escalationRules": [],
+  "notificationRules": [],
+  "tags": [],
+  "slug": "set-update-profile",
+  "_exportedId": "019e8d34-88bf-70d3-a176-d7aff33657ae"
+}

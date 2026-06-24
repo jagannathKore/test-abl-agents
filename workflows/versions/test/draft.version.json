@@ -1,0 +1,41 @@
+{
+  "version": "draft",
+  "state": "active",
+  "environment": null,
+  "source_hash": "35474872148b769c3cdf31b9f2cbb395f1f99c288e7e5a4171fa0ef569546741",
+  "changelog": null,
+  "triggers": [
+    {
+      "_exportedId": "019edf8b-e126-743a-b48d-89179f9be6c0",
+      "triggerName": "webhook",
+      "type": "webhook",
+      "config": {},
+      "environment": null
+    }
+  ],
+  "published_at": null,
+  "definition": {
+    "nodes": [
+      {
+        "id": "start-node",
+        "nodeType": "start",
+        "name": "Start",
+        "position": {
+          "x": 400,
+          "y": 50
+        },
+        "config": {
+          "inputVariables": []
+        }
+      }
+    ],
+    "edges": [],
+    "steps": [],
+    "inputSchema": null,
+    "outputSchema": null,
+    "entryAgent": null,
+    "slaMinutes": null,
+    "escalationRules": [],
+    "notificationRules": []
+  }
+}

@@ -1,0 +1,7 @@
+TOOLS:
+  set_update_profile() -> object
+    description: "desc"
+    type: workflow
+    workflow_id: 019e8d34-88bf-70d3-a176-d7aff33657ae
+    workflow_version: v0.1.0
+    trigger_id: ba241371-fa28-4299-b88d-f2bdb23c5b9d

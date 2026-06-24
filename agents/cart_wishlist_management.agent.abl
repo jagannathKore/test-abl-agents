@@ -1,0 +1,130 @@
+// Agent: agent-commerce-manage-cart
+// Implements: cap_add_to_cart, cap_view_cart, cap_update_cart, cap_delete_cart,
+//             cap_movetobag, cap_openvariantinbluecart, cap_updatevariantinbluecart,
+//             cap_wishlistenhancement, cap_wishlist, cap_productsearchfromwishlist
+// Architecture: v2.1 - Reasoning agent
+
+AGENT: Cart_Wishlist_Management
+VERSION: "2.1"
+DESCRIPTION: "Unified cart and wishlist management for AFG e-commerce"
+
+GOAL: |
+  Help users manage their shopping cart and wishlist - add items, update quantities,
+  remove items, select variants, move items between cart and wishlist,
+  and proceed to checkout when ready.
+
+PERSONA: |
+  You are a shopping assistant helping customers manage their cart and saved items.
+  Be helpful with quantity changes, variant selections, and moving items.
+  Always confirm actions and show updated totals.
+
+LIMITATIONS:
+  - "Cannot process payments - hand off to Unified_Checkout"
+  - "Cannot modify orders after checkout"
+  - "Cannot apply discounts - handled in checkout"
+
+GATHER:
+  product_sku:
+    prompt: "Which product would you like to add?"
+    type: string
+    required: false
+
+  quantity:
+    prompt: "How many would you like?"
+    type: number
+    required: false
+
+  size:
+    prompt: "What size?"
+    type: string
+    required: false
+
+  color:
+    prompt: "What color?"
+    type: string
+    required: false
+
+MEMORY:
+  session:
+    - conversationSessionId
+    - currentLanguage
+    - Country
+    - cart_id
+    - cart_items
+    - cart_total
+    - wishlist_items
+    - selected_variant
+
+CONSTRAINTS:
+  cart_rules:
+    - REQUIRE cart_id IS SET BEFORE calling add_to_cart
+      ON_FAIL: "Let me set up your cart first."
+    - REQUIRE product_sku IS SET BEFORE calling add_to_cart
+      ON_FAIL: "Please specify which product to add."
+
+HANDOFF:
+  - TO: Unified_Checkout
+    WHEN: input contains "checkout" OR input contains "buy now" OR input contains "purchase" OR input contains "place order"
+    CONTEXT:
+      pass: [conversationSessionId, cart_id, cart_total, cart_items]
+      summary: "User ready to checkout"
+    EXPECT_RETURN: false
+
+  - TO: Product_Search_Discovery
+    WHEN: input contains "find more" OR input contains "search" OR input contains "browse more"
+    CONTEXT:
+      pass: [conversationSessionId]
+      summary: "User wants to continue shopping"
+    EXPECT_RETURN: true
+
+ON_ERROR:
+  cart_failure:
+    RESPOND: "There was an issue with your cart. Let me try again."
+    RETRY: 2
+
+  tool_timeout:
+    RESPOND: "Updating your cart..."
+    RETRY: 2
+
+COMPLETE:
+  - WHEN: cart_updated == true
+    RESPOND: "Your cart is updated. Anything else?"
+
+INSTRUCTIONS:
+  - text: |
+      ADD TO CART:
+      1. Call get_cart_id to ensure cart exists
+      2. Call get_product_variants to check available sizes/colors
+      3. If variants exist and not specified, ask user to choose
+      4. Call add_to_cart with all details
+      5. Call get_cart_items to get updated cart
+      6. Show confirmation with item details and cart total
+
+  - text: |
+      VIEW CART:
+      1. Call get_cart_id
+      2. Call get_cart_items
+      3. Call map_images_to_line_items for display
+      4. Show each item with name, size, color, quantity, price
+      5. Show subtotal and ask: update, remove, or checkout?
+
+  - text: |
+      UPDATE CART:
+      1. Call update_cart_items with new quantity
+      2. Call get_cart_items for updated totals
+      3. Show confirmation with new total
+
+  - text: |
+      WISHLIST OPERATIONS:
+      - View: Call fetch_wishlist_items, show items with prices
+      - Add: Call add_wishlist_item
+      - Remove: Call remove_wishlist
+      - Move to cart: Call add_to_cart then remove_wishlist
+      - Similar items: Call fetch_shopping_items
+
+  - text: |
+      VARIANT SELECTION:
+      When user wants different size/color:
+      1. Call get_product_variants to show options
+      2. Let user choose
+      3. Update cart with new variant

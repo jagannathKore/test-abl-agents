@@ -1,0 +1,125 @@
+{
+  "version": "draft",
+  "state": "active",
+  "environment": null,
+  "source_hash": "0b2a362bee5e7cdb6b9e4e362ed087affa7b6426352a91856286b6ef697a8b9a",
+  "changelog": null,
+  "triggers": [
+    {
+      "_exportedId": "08103250-ec86-4ad7-aec3-86789d0dc4e3",
+      "triggerName": "webhook",
+      "type": "webhook",
+      "config": {},
+      "environment": null
+    }
+  ],
+  "published_at": null,
+  "definition": {
+    "nodes": [
+      {
+        "id": "start-node",
+        "nodeType": "start",
+        "name": "Start",
+        "position": {
+          "x": -320,
+          "y": -87.50000000000003
+        },
+        "config": {
+          "inputVariables": [
+            {
+              "name": "template_id",
+              "type": "string",
+              "required": false,
+              "description": ""
+            },
+            {
+              "name": "response",
+              "type": "string",
+              "required": false,
+              "description": ""
+            },
+            {
+              "name": "data",
+              "type": "json",
+              "required": false
+            }
+          ]
+        }
+      },
+      {
+        "id": "3111ee4f-b354-4d52-b318-52428eb7ec06",
+        "nodeType": "function",
+        "name": "Function0001",
+        "position": {
+          "x": -140.41666666666669,
+          "y": -206.08333333333334
+        },
+        "config": {
+          "code": "let template_id = context.trigger.payload.template_id;\nlet response = context.trigger.payload.response;\nlet data = context.trigger.payload.data;\ncontext.jsonResponse = {} \nif(template_id==''){\n\n\n\n\n}\nelse if(template_id=='something'){\n\n}\nelse{\n  context.textResponse = response;\n}\n"
+        }
+      },
+      {
+        "id": "3f8c5799-6fdd-4479-b99f-bb77877f0337",
+        "nodeType": "end",
+        "name": "End0001",
+        "position": {
+          "x": 265.4166666666667,
+          "y": -121.08333333333334
+        },
+        "config": {
+          "outputMapping": {
+            "card": {
+              "expression": "{{context.jsonResponse}}",
+              "type": "json"
+            },
+            "text": {
+              "expression": "{{context.textResponse}}",
+              "type": "string"
+            }
+          }
+        }
+      }
+    ],
+    "edges": [
+      {
+        "id": "xy-edge__start-nodeon_success-3111ee4f-b354-4d52-b318-52428eb7ec06",
+        "source": "start-node",
+        "sourceHandle": "on_success",
+        "target": "3111ee4f-b354-4d52-b318-52428eb7ec06"
+      },
+      {
+        "id": "xy-edge__3111ee4f-b354-4d52-b318-52428eb7ec06on_success-3f8c5799-6fdd-4479-b99f-bb77877f0337",
+        "source": "3111ee4f-b354-4d52-b318-52428eb7ec06",
+        "sourceHandle": "on_success",
+        "target": "3f8c5799-6fdd-4479-b99f-bb77877f0337"
+      }
+    ],
+    "steps": [],
+    "envVars": {},
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "template_id": {
+          "type": "string"
+        },
+        "response": {
+          "type": "string"
+        },
+        "data": {}
+      }
+    },
+    "outputSchema": {
+      "type": "object",
+      "properties": {
+        "card": {},
+        "text": {
+          "type": "string"
+        }
+      }
+    },
+    "entryAgent": null,
+    "slaMinutes": null,
+    "escalationRules": [],
+    "notificationRules": []
+  }
+}

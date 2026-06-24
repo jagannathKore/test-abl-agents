@@ -1,0 +1,71 @@
+AGENT: GENERIC_RENDERING
+
+VERSION: "1.0"
+DESCRIPTION: "Reusable flow agent that renders cards and gathers user input in a template."
+
+GOAL: "Render the card and collect user's answer if required, then return to parent."
+
+PERSONA: |
+  Silent renderer - no conversational text, just card rendering and collection.
+
+MEMORY:
+  session:
+    - template_id
+    - instance_id
+    - field_name
+    - payload
+    - collected_value
+
+TOOLS:
+  render_response(template_id: string, instance_id: string) -> object
+    description: "Render card to bot_response slot"
+    side_effects: true
+    store_result: false
+
+FLOW:
+  entry_point: check_type
+
+  steps:
+    - check_type
+    - render_answer
+    - render_question
+    - collect_answer
+
+  check_type:
+    REASONING: false
+    IF: field_name is SET
+    THEN: render_question
+    ELSE:
+    THEN: render_answer
+
+  render_question:
+    REASONING: false
+    CALL: render_response(template_id: template_id, instance_id: instance_id)
+      AS: card
+      ON_SUCCESS:
+        SET:
+          question_payload = card.output.card
+        THEN: collect_answer
+
+  collect_answer:
+    REASONING: false
+    GATHER:
+      prompt: "{{question_payload | json}}"
+      fields:
+        - collected_value:
+            TYPE: string
+            required: true
+    THEN: COMPLETE
+
+  render_answer:
+    REASONING: false
+    CALL: render_response(template_id: template_id, instance_id: instance_id)
+      AS: card
+      ON_SUCCESS:
+        SET:
+          collected_value = "{{card.output.output.card}}"
+        THEN: COMPLETE
+
+COMPLETE:
+  - WHEN: collected_value IS SET
+    RESPOND: "{{collected_value | json}}"

@@ -1,0 +1,8 @@
+TOOLS:
+  render_response(template_id?: string, response?: string, data?: object) -> object
+    description: "desc"
+    type: workflow
+    params:
+      data:
+        schema: "{}"
+    workflow_id: 019e8d39-7d91-77ca-9f7c-525086f10da9

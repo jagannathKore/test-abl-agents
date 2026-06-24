@@ -1,0 +1,126 @@
+{
+  "version": "draft",
+  "state": "active",
+  "environment": null,
+  "source_hash": "98c8c70c5aea28b49760c1a971adb1ea6821ddf0c01cb1115e28aa729013434d",
+  "changelog": null,
+  "triggers": [
+    {
+      "_exportedId": "019eda8b-36df-7877-89c3-ff84388a9564",
+      "triggerName": "webhook",
+      "type": "webhook",
+      "config": {},
+      "environment": null
+    }
+  ],
+  "published_at": null,
+  "definition": {
+    "nodes": [
+      {
+        "id": "start-node",
+        "nodeType": "start",
+        "name": "Start",
+        "position": {
+          "x": -65.00000000000001,
+          "y": 25
+        },
+        "config": {
+          "inputVariables": [
+            {
+              "name": "language",
+              "type": "string",
+              "required": true,
+              "description": ""
+            },
+            {
+              "name": "product_category",
+              "type": "string",
+              "required": true
+            }
+          ]
+        }
+      },
+      {
+        "id": "b16710d6-9556-403e-9af8-41f286b4acc0",
+        "nodeType": "tool",
+        "name": "Tool0001",
+        "position": {
+          "x": 337.9166666666667,
+          "y": -11.916666666666679
+        },
+        "config": {
+          "toolId": "019eda8a-6971-7374-8487-42b4fcdbc17c",
+          "toolName": "beauty_and_fashion_categories",
+          "toolType": null,
+          "params": {
+            "id": "674432f5545f885e6c485f32"
+          },
+          "executionMode": "sync"
+        }
+      },
+      {
+        "id": "bca21443-2a74-49b4-8b9e-433ff91b5cf0",
+        "nodeType": "function",
+        "name": "Function0001",
+        "position": {
+          "x": 54.583333333333286,
+          "y": -61.9166666666667
+        },
+        "config": {
+          "code": " "
+        }
+      },
+      {
+        "id": "55bee024-00d9-48db-bb22-eb7d89cbae77",
+        "nodeType": "end",
+        "name": "End0001",
+        "position": {
+          "x": 636.25,
+          "y": -23.583333333333343
+        },
+        "config": {}
+      }
+    ],
+    "edges": [
+      {
+        "id": "xy-edge__start-nodeon_success-bca21443-2a74-49b4-8b9e-433ff91b5cf0",
+        "source": "start-node",
+        "sourceHandle": "on_success",
+        "target": "bca21443-2a74-49b4-8b9e-433ff91b5cf0"
+      },
+      {
+        "id": "xy-edge__bca21443-2a74-49b4-8b9e-433ff91b5cf0on_success-b16710d6-9556-403e-9af8-41f286b4acc0",
+        "source": "bca21443-2a74-49b4-8b9e-433ff91b5cf0",
+        "sourceHandle": "on_success",
+        "target": "b16710d6-9556-403e-9af8-41f286b4acc0"
+      },
+      {
+        "id": "xy-edge__b16710d6-9556-403e-9af8-41f286b4acc0on_success-55bee024-00d9-48db-bb22-eb7d89cbae77",
+        "source": "b16710d6-9556-403e-9af8-41f286b4acc0",
+        "sourceHandle": "on_success",
+        "target": "55bee024-00d9-48db-bb22-eb7d89cbae77"
+      }
+    ],
+    "steps": [],
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "language": {
+          "type": "string"
+        },
+        "product_category": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "language",
+        "product_category"
+      ]
+    },
+    "outputSchema": null,
+    "entryAgent": null,
+    "slaMinutes": null,
+    "escalationRules": [],
+    "notificationRules": []
+  }
+}

@@ -1,0 +1,16 @@
+TOOLS:
+  beauty_and_fashion_categories(id?: string) -> object
+    description: "this tool receives a path parameter to call the specified marketing catalog for beauty and fashion"
+    type: http
+    params:
+      id:
+        description: desc
+        default_source: runtime
+    endpoint: "{{config.BLUE_MARKETING_URL}}/{{input.id}}/offers"
+    method: GET
+    body_type: json
+    headers:
+      Channel-Id: BLUE
+      Org-Id: 2641
+      Lob-Id: BLUE
+      Authorization: "Bearer 8f907078-31dc-4ca1-b484-724623858367-1781785530"
