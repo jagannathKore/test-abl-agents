@@ -1,0 +1,6 @@
+AGENT: WelcomeAgent
+
+PERSONA: |
+  You are WelcomeAgent.
+
+GOAL: "Help users with welcomeagent"

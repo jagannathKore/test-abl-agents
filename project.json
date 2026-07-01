@@ -1,12 +1,12 @@
 {
   "format_version": "2.0",
-  "name": "Afg Test",
-  "slug": "afg-test",
+  "name": "Test Blue",
+  "slug": "test-blue",
   "description": null,
   "abl_version": "1.0",
-  "exported_at": "2026-06-22T07:18:19.802Z",
-  "exported_by": "019e4a28-69cc-7427-a021-8c4d50a8d18a",
-  "entry_agent": "Entry_Supervisor",
+  "exported_at": "2026-07-01T08:59:22.643Z",
+  "exported_by": "019e1575-63d9-7457-bbb9-4e69a7839399",
+  "entry_agent": null,
   "dsl_format": "legacy",
   "layers_included": [
     "core",
@@ -17,67 +17,12 @@
     "evals",
     "search",
     "channels",
-    "vocabulary"
+    "vocabulary",
+    "tables"
   ],
   "agents": {
-    "Discovery_Services": {
-      "path": "agents/discovery_services.agent.abl",
-      "owner": null,
-      "ownerTeam": null,
-      "description": null,
-      "version": null
-    },
-    "Automobile_Discovery": {
-      "path": "agents/automobile_discovery.agent.abl",
-      "owner": null,
-      "ownerTeam": null,
-      "description": null,
-      "version": null
-    },
-    "Product_Search_Discovery": {
-      "path": "agents/product_search_discovery.agent.abl",
-      "owner": null,
-      "ownerTeam": null,
-      "description": null,
-      "version": null
-    },
-    "Entry_Supervisor": {
-      "path": "agents/entry_supervisor.agent.abl",
-      "owner": null,
-      "ownerTeam": null,
-      "description": null,
-      "version": null
-    },
-    "FAQ_Knowledge": {
-      "path": "agents/faq_knowledge.agent.abl",
-      "owner": null,
-      "ownerTeam": null,
-      "description": null,
-      "version": null
-    },
-    "Unified_Checkout": {
-      "path": "agents/unified_checkout.agent.abl",
-      "owner": null,
-      "ownerTeam": null,
-      "description": null,
-      "version": null
-    },
-    "Promotions_Offers": {
-      "path": "agents/promotions_offers.agent.abl",
-      "owner": null,
-      "ownerTeam": null,
-      "description": null,
-      "version": null
-    },
-    "Cart_Wishlist_Management": {
-      "path": "agents/cart_wishlist_management.agent.abl",
-      "owner": null,
-      "ownerTeam": null,
-      "description": null,
-      "version": null
-    },
-    "GENERIC_RENDERING": {
-      "path": "agents/generic_rendering.agent.abl",
+    "WelcomeAgent": {
+      "path": "agents/welcomeagent.agent.abl",
       "owner": null,
       "ownerTeam": null,
       "description": null,
@@ -85,47 +30,30 @@
     }
   },
   "tools": {
-    "render_response": {
-      "path": "tools/render_response.tools.abl",
-      "owner": null
-    },
-    "set_update_profile": {
-      "path": "tools/set_update_profile.tools.abl",
-      "owner": null
-    },
-    "search_kb_brand_extraction_4556c155": {
-      "path": "tools/search_kb_brand_extraction_4556c155.tools.abl",
-      "owner": null
-    },
-    "beauty_and_fashion_categories": {
-      "path": "tools/beauty_and_fashion_categories.tools.abl",
-      "owner": null
-    },
-    "beauty_and_fashion_categories_wf": {
-      "path": "tools/beauty_and_fashion_categories_wf.tools.abl",
+    "test_table": {
+      "path": "tools/test_table.tools.abl",
       "owner": null
     }
   },
   "behavior_profiles": {},
   "metadata": {
     "entity_counts": {
-      "agents": 9,
-      "tools": 5,
+      "agents": 1,
+      "tools": 1,
       "behavior_profiles": 0,
-      "core": 14,
+      "core": 2,
       "connections": 0,
       "prompts": 0,
       "guardrails": 0,
-      "workflows": 4,
+      "workflows": 2,
       "evals": 0,
-      "search": 2,
+      "search": 0,
       "channels": 0,
-      "vocabulary": 0
+      "vocabulary": 0,
+      "tables": 0
     },
     "required_env_vars": [],
-    "required_config_vars": [
-      "BLUE_MARKETING_URL"
-    ],
+    "required_config_vars": [],
     "required_connectors": [],
     "required_mcp_servers": []
   }

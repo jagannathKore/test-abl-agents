@@ -1,0 +1,9 @@
+TOOLS:
+  test_table() -> object
+    description: "desc"
+    type: table
+    table: c_o
+    scope: project
+    schema_version: 1
+    table_schema_versions: c_o=1
+    operations: get, insert, update, delete, upsert

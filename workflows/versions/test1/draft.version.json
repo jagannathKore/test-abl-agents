@@ -2,14 +2,27 @@
   "version": "draft",
   "state": "active",
   "environment": null,
-  "source_hash": "4d24a70f5ecf3d4fcf0b602b311795ad4d85cd2403a29660a4a98ae06b5bfed0",
+  "source_hash": "35474872148b769c3cdf31b9f2cbb395f1f99c288e7e5a4171fa0ef569546741",
   "changelog": null,
   "triggers": [
     {
-      "_exportedId": "019f1768-2481-7e31-b0d7-4571c721b4b0",
+      "_exportedId": "019f183e-8067-79d3-a628-f41680fcfa20",
       "triggerName": "webhook",
       "type": "webhook",
       "config": {},
+      "environment": null
+    },
+    {
+      "_exportedId": "0314d1af-39c3-4c80-a52b-e74bcc64339c",
+      "triggerName": "cron",
+      "type": "cron",
+      "config": {
+        "preset": "monthly",
+        "timezone": "Asia/Calcutta",
+        "time": "09:00",
+        "cronExpression": "0 9 1 * *"
+      },
+      "cronExpression": "0 9 1 * *",
       "environment": null
     }
   ],
@@ -21,8 +34,8 @@
         "nodeType": "start",
         "name": "Start",
         "position": {
-          "x": 130.8333333333334,
-          "y": 6.666666666666664
+          "x": 400,
+          "y": 50
         },
         "config": {
           "inputVariables": []

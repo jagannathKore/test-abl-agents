@@ -1,5 +1,0 @@
-TOOLS:
-  search_kb_brand_extraction_4556c155(query: string) -> object
-    description: "Search the \"Brand Extraction\" knowledge base"
-    type: searchai
-    index_id: "019ed4e1-e388-7837-b633-30a14524cbf8"

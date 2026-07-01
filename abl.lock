@@ -1,129 +1,57 @@
 {
   "lockfile_version": "2.0",
-  "generated_at": "2026-06-22T07:18:19.804Z",
+  "generated_at": "2026-07-01T08:59:22.644Z",
   "agents": {
-    "Discovery_Services": {
+    "WelcomeAgent": {
       "version": "1.0",
-      "source_hash": "d092a59130ef3096",
-      "status": "active"
-    },
-    "Automobile_Discovery": {
-      "version": "1.0",
-      "source_hash": "c9848c217d064f85",
-      "status": "active"
-    },
-    "Product_Search_Discovery": {
-      "version": "1.0",
-      "source_hash": "934868088cb5e9d1",
-      "status": "active"
-    },
-    "Entry_Supervisor": {
-      "version": "1.0",
-      "source_hash": "c6d95a58dae9f549",
-      "status": "active"
-    },
-    "FAQ_Knowledge": {
-      "version": "1.0",
-      "source_hash": "c695c395dba0b239",
-      "status": "active"
-    },
-    "Unified_Checkout": {
-      "version": "1.0",
-      "source_hash": "fc47517c642e0f0a",
-      "status": "active"
-    },
-    "Promotions_Offers": {
-      "version": "1.0",
-      "source_hash": "6938b86d063db178",
-      "status": "active"
-    },
-    "Cart_Wishlist_Management": {
-      "version": "1.0",
-      "source_hash": "d6e017b766ce432a",
-      "status": "active"
-    },
-    "GENERIC_RENDERING": {
-      "version": "1.0",
-      "source_hash": "64601f5b60cc509c",
+      "source_hash": "ca8927fb38c44360",
       "status": "active"
     }
   },
   "tools": {
-    "tools/render_response.tools.abl": {
-      "source_hash": "612961469ca21e10"
-    },
-    "tools/set_update_profile.tools.abl": {
-      "source_hash": "be2161bfacbe9ec0"
-    },
-    "tools/search_kb_brand_extraction_4556c155.tools.abl": {
-      "source_hash": "c98451d7ee1470d4"
-    },
-    "tools/beauty_and_fashion_categories.tools.abl": {
-      "source_hash": "75150b421941ad10"
-    },
-    "tools/beauty_and_fashion_categories_wf.tools.abl": {
-      "source_hash": "5b916b0525f63227"
+    "tools/test_table.tools.abl": {
+      "source_hash": "a07decb61f1513be"
     }
   },
   "configs": {
-    "environment/config-vars.json": {
-      "source_hash": "e06fae15903c373f"
+    "config/runtime-config.json": {
+      "source_hash": "b08adb569f0c10cc"
     }
   },
   "connections": {},
   "guardrails": {},
   "workflows": {
-    "workflows/set_update_profile.workflow.json": {
-      "source_hash": "0e2104169b515aaa"
-    },
-    "workflows/render_response.workflow.json": {
-      "source_hash": "b0fde1d21ceed6fd"
-    },
-    "workflows/catalog_categories.workflow.json": {
-      "source_hash": "3270ee13dff3f6ea"
-    },
     "workflows/test.workflow.json": {
-      "source_hash": "b9899bb61be121d6"
+      "source_hash": "3e4dada1b3c07d21"
     },
-    "workflows/versions/set_update_profile/draft.version.json": {
-      "source_hash": "dc1c4b54bf668eb7",
-      "version": "draft"
-    },
-    "workflows/versions/render_response/draft.version.json": {
-      "source_hash": "4002acff84f19186",
-      "version": "draft"
-    },
-    "workflows/versions/catalog_categories/draft.version.json": {
-      "source_hash": "4245dab896014f10",
-      "version": "draft"
+    "workflows/test1.workflow.json": {
+      "source_hash": "2e495645dec810d6"
     },
     "workflows/versions/test/draft.version.json": {
-      "source_hash": "a88c34dd5d919ccf",
+      "source_hash": "418593ff997035df",
+      "version": "draft"
+    },
+    "workflows/versions/test1/draft.version.json": {
+      "source_hash": "5ef1ef0e98fbe8a9",
       "version": "draft"
     }
   },
   "evals": {},
-  "search": {
-    "search/indexes/brand-extraction.index.json": {
-      "source_hash": "c1c05d7b76dc15f1"
-    },
-    "search/knowledge-bases/brand_extraction.kb.json": {
-      "source_hash": "f2750e207dfd48ee"
-    }
-  },
+  "search": {},
   "channels": {},
   "vocabulary": {},
   "behavior_profiles": {},
   "layer_hashes": {
-    "core": "57bd2a6513400e3eb9e1cff173a78758d969aae95730befa03e364a51449fb5a",
+    "core": "f6e5ae3f5970e6144a43682e6219dd7cfd6e39c3c9d50924c2d8bb1e1a030787",
     "connections": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "prompts": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "guardrails": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-    "workflows": "5a30ef5e07a40af4b87aa58c04b6ff12545c03645b9c755d41a3b30fcdcff723",
+    "workflows": "1375a64b00065c87163193885ee47e4b271512f39f263472a4ae1f4db5db8a2e",
     "evals": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-    "search": "813c4bec418fd15cbff7b28993095c0f0e1744d11d971c7415d8ffc6b2fab09e",
+    "search": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "channels": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-    "vocabulary": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    "vocabulary": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "tables": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
   },
-  "integrity": "31a23a69d9ace91bae2e3bf80a2442d4ddd4062c628f9357d0c90cff0c269656"
+  "integrity": "b2d3ad94d8e9209076b9675bae06dc5f7fec206600f77b32b7ed21b1f200e0e6"
 }
